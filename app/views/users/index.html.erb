@@ -1,0 +1,63 @@
+<section class="content-header">
+    <h1>
+    <a href="#"><i class="fa fa-user"></i></a>
+        <%= t('users') %>
+        <small><%= t('home') %></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="/dashboard"><i class="fa fa-dashboard"></i> <%= t('dashboard') %></a></li>
+        <li class="active"><%= t('users') %></li>
+    </ol>
+</section>
+<div id="alert"><%= render 'layouts/alert' %></div>
+<section class="content">
+<div class="row">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-10">
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title"><%= t('user_table') %></h3>
+      </div>
+      <div class="box-body table-responsive">
+        <table id="data_table" class="table table-hover display">
+          <thead>
+            <tr>
+              <th><%= t('name') %></th>
+              <th><%= t('username') %></th> 
+              <th><%= t('role') %></th> 
+              <th><%= t('email') %></th>
+            <% if current_user.admin %>
+              <th><%= t('hall') %></th>
+            <% end %>
+            </tr>           
+          </thead>
+          <tfoot>
+            <tr>
+          <% if current_user.admin %>
+            <th colspan="5"></th>
+          <% else %>
+            <th colspan="4"></th>
+          <% end %>
+            </tr>
+          </tfoot>
+          <tbody>
+            <% @users.each do |user| %>
+              <% unless current_user == user %>
+                <tr>
+                  <td><%= link_to user.full_name, user_path(user)%></td>
+                  <td><%= user.username %></td>
+                  <td><%= user.role %></td>
+                  <td><%= user.email %></td>
+                <% if current_user.admin %>
+                  <td><%= user.hall_name %></td>
+                <% end %>
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</section>

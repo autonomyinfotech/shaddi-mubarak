@@ -1,0 +1,34 @@
+
+hi:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              too_short: 'बहुत छोटा है ( कम से कम 6 अक्षर है ) '
+              too_long: 'बहुत लंबा है (अधिकतम 20 वर्ण है )'
+              invalid: 'अमान्य है'
+              taken: 'पहले से ही लिया जा चुका है'
+            first_name:
+              too_long: 'बहुत लंबा है (अधिकतम 20 वर्ण है )'
+              invalid: 'अमान्य है'
+            last_name:
+              too_long: 'बहुत लंबा है (अधिकतम 20 वर्ण है )'
+              invalid: 'अमान्य है'
+            email:
+              taken: 'पहले से ही लिया जा चुका है'
+              invalid: 'अमान्य है'
+            password_confirmation:
+              confirmation: 'पासवर्ड मेल नहीं खाता'
+            password:
+              too_short: 'बहुत छोटा है ( कम से कम 8 अक्षर है ) '
+            current_password:
+              invalid: 'अमान्य है'
+
+        hall:
+          attributes:
+            phone_no:
+              not_a_number: 'संख्या नहीं है'
+            image_content_type:
+              invalid: 'अमान्य है'

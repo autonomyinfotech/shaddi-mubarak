@@ -1,0 +1,12 @@
+
+<% if alert %>
+	<div class="alert alert-danger alert-dismissable">
+	    <b><%= t('alert')%></b> <%= alert %>
+	</div>
+<% end %>
+
+<% if notice %>
+	<div class="alert alert-success alert-dismissable">
+	    <b><%= t('notice')%></b> <%= notice %>
+	</div>
+<% end %>

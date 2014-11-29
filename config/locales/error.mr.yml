@@ -1,0 +1,34 @@
+
+mr:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            username:
+              too_short: 'खूप लहान आहे ( किमान 6 वर्ण आहे ) '
+              too_long: 'खूप लांब आहे ( जास्तीत जास्त 20 अक्षरांचा आहे )'
+              invalid: 'अवैध आहे'
+              taken: 'घेतले गेले आहे'
+            first_name:
+              too_long: 'खूप लांब आहे ( जास्तीत जास्त 20 अक्षरांचा आहे )'
+              invalid: 'अवैध आहे'
+            last_name:
+              too_long: 'खूप लांब आहे ( जास्तीत जास्त 20 अक्षरांचा आहे )'
+              invalid: 'अवैध आहे'
+            email:
+              taken: 'घेतले गेले आहे'
+              invalid: 'अवैध आहे'
+            password_confirmation:
+              confirmation: 'पासवर्ड जुळत नाही'
+            password:
+              too_short: 'खूप लहान आहे ( किमान 8 वर्ण आहे ) '
+            current_password:
+              invalid: 'अवैध आहे'
+
+        school:
+          attributes:
+            phone_no:
+              not_a_number: 'क्रमांक नाही'
+            image_content_type:
+              invalid: 'अवैध आहे'

@@ -1,0 +1,15 @@
+<section class="content-header">
+    <h1>
+    <a href="#"><i class="fa fa-dashboard"></i></a>
+        <%= t('dashboard') %>
+        <small><%= t('control_panel') %></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> <%= t('home') %></a></li>
+        <li class="active"><%= t('dashboard') %></li>
+    </ol>
+</section>
+<div id="alert"><%= render 'layouts/alert' %></div>
+<section class="content">
+    <%= render 'admin_dashboard' %>
+</section>

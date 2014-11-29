@@ -1,0 +1,10 @@
+<p><%t('welcome')%> <%= @email %>!</p>
+
+<p><%=t('register')%></p>
+
+<p><%=t('login_id')%><%= @email %></p>
+<p><%=t('login_password')%> <%=@resource.password%></p>
+
+<p><%=t('Confirm')%> </p>
+
+<p><%= link_to t('Confirm my account'), confirmation_url(@resource, confirmation_token: @token) %></p>
