@@ -11,5 +11,9 @@
 </section>
 <div id="alert"><%= render 'layouts/alert' %></div>
 <section class="content">
+<% if current_user.admin %>
     <%= render 'admin_dashboard' %>
+<% else %>
+    <%= render 'user_dashboard' %>
+<% end %>
 </section>
