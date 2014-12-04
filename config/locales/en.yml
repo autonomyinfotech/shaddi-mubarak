@@ -47,7 +47,7 @@ en:
   account: 'Click the link below to unlock your account'
   new_password: 'Confirm new password'
   change_password: 'Change password'
-  reset_password: 'Send me reset password instructions'
+  reset_password: 'Reset password'
   password_confirmation: 'Password confirmation'
   forgot_password: 'Forgot your password'
   confirmation1: "Didn't receive confirmation instructions?"

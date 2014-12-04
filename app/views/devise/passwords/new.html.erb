@@ -1,31 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title><%= t('swarajya_forget_password') %></title>
-  <%= stylesheet_link_tag 'application'%>
-  <%= javascript_include_tag :defaults, "rails.validations" %>
-</head>
-<body class="bg-black">
+<div class="container">
+  <div class="row">
+    <div class="col-md-7"></div>
+    <div class="col-md-5">
+      <div class="panel">
+        <div class="panel-body">
+            <h2><%= t('forgot_password')%></h2>
+        </div>
+        <div class="panel-footer">
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 
-<div class="form-box" id="login-box">
-    <div class="header"><%= t('forgot_password')%></div>
-   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= devise_error_messages! %>
 
-        <div class="body bg-gray">
-        <%= devise_error_messages! %> 
             <div class="form-group">
-
             <%= f.email_field :email, autofocus: true, type: "text", class: "form-control", required: true, placeholder: "#{t('email')}" %>
             </div>
+
+    	      <div class="form-group">
+    	      <%= f.submit "#{t('reset_password')}", class: "btn btn-primary btn-lg" %>
+            </div>    
+  	    	  <%= render "devise/shared/links" %>
+  	      <% end %>
         </div>
-
-	    <div class="footer">
-	    <%= f.submit "#{t('reset_password')}", class: "btn bg-olive btn-block" %>
-
-	    	<%= render "devise/shared/links" %>
-
-	    </div>
-	<% end %>
+      </div>
+    </div>
+  </div>
 </div>
-</body>
-</html>

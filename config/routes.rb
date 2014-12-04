@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'home#index'
+  root 'home#home'
 
+  get 'home', to: 'home#home', as: 'home'
   get 'blog', to: 'home#blog', as: 'blog'
   get 'contact_us', to: 'home#contact_us', as: 'contact_us'
   get 'about_us', to: 'home#about_us', as: 'about_us'
@@ -9,11 +10,10 @@ Rails.application.routes.draw do
   get 'services', to: 'home#services', as: 'services'
   get 'thank_you', to: 'home#thank_you', as: 'thank_you'
 
-  resources :home
-  devise_for :users, controllers: { registrations: :registrations, sessions: :sessions, passwords: :passwords }
+  devise_for :users, controllers: { registrations: :registrations }
 
   resources :dashboard do
-    member do
+    collection do
       get :booking
       post :create_booking
     end

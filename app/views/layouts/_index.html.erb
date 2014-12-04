@@ -1,63 +1,68 @@
-<% if user_signed_in? %>
-<div class="pace  pace-inactive">
-  <div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
-  <div class="pace-progress-inner"></div>
-  </div>
-  <div class="pace-activity"></div>
-</div>
-  <header class="header">
-    <%= link_to "#{current_user.hall_name}",'#', class: "logo"%>
+<header id="header">
+  <nav class="navbar navbar-inverse" role="banner">
+      <div class="container">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <%= image_tag "logo.png",class: "navbar-brand", alt: "logo" %>
+          </div>
+  
+          <div class="collapse navbar-collapse navbar-right">
+              <ul class="nav navbar-nav">
+                <% if user_signed_in? %>
+                  <li><%= link_to 'Home', home_path, class: "alink"%></li>
+                  <li><%= link_to 'Dashboard', dashboard_index_path, class: "alink"%></li>
+                  <li class="dropdown link">
+                    <%= link_to current_user.username,'#', class: "dropdown-toggle", :'data-toggle'=> "dropdown"%>
+                    <i class="fa fa-angle-down"></i>
+                      <ul class="dropdown-menu">
+                        <li><%= link_to "#{t('profile')}", edit_user_registration_path%></li>
+                        <li><%= link_to "#{t('sign_out')}",destroy_user_session_path, method: :delete%></li>
+                      </ul>
+                  </li>
+                <% else %>
+                  <li><%= link_to 'Home', home_path, class: "alink"%></li>
+                  <li><%= link_to 'About Us', about_us_path, class: "alink"%></li>
+                  <li><%= link_to 'Services', services_path, class: "alink"%></li>
+                  <li><%= link_to 'Portfolio', portfolio_path, class: "alink"%></li>
+                  <li><%= link_to 'Blog', blog_path, class: "alink"%></li> 
+                  <li><%= link_to 'Contact Us', contact_us_path, class: "alink"%></li>
+                  <li><%= link_to 'Login', new_user_session_path, class: "alink"%></li>
+                <% end %>
+              </ul>
+          </div>
+      </div><!--/.container-->
+  </nav><!--/nav-->
+</header><!--/header-->
 
-    <nav class="navbar navbar-static-top" role="navigation">
-      <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-      </a>
+<%= yield %>
 
-      <div class="navbar-right">
-        <ul class="nav navbar-nav">
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="glyphicon glyphicon-user"></i>
-              <span><%= current_user.username %><i class="caret"></i></span>
-            </a>
-            
-            <ul class="dropdown-menu">
-              <li class="user-header bg-light-blue">
-                  <img src="" class="img-circle" alt="User Image">
-                  <p>
-                      <%= current_user.full_name %>
-                      <small><%= current_user.role %></small>
-                  </p>
-              </li>
-                            
-              <li class="user-footer">
-                <div class="pull-left">
-                <%= link_to "#{t('profile')}", edit_user_registration_path, :class => 'navbar-link btn btn-default btn-flat'%>
-                </div>
-                <div class="pull-right">
-                <%= link_to "#{t('sign_out')}",destroy_user_session_path, method: :delete, :class => 'navbar-link btn btn-default btn-flat'%>
-                </div>
-            </li>
-            </ul>
+<section id="bottom">
+    <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+        <div class="row">
+        </div>
+    </div>
+</section><!--/#bottom-->
 
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-
-  <div class="wrapper row-offcanvas row-offcanvas-left" style="min-height: 631px;">
-    <aside class="left-side sidebar-offcanvas collapse-left" style="min-height: 1767px;">
-      <section class="sidebar">
-        <%= render 'layouts/admin_bar' %>
-      </section>
-    </aside>
-
-    <aside class="right-side strech">
-        <%= yield %>
-    </aside>
-  </div>
-<% end %>
+<footer id="footer" class="midnight-blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                &copy; 2014 <%= link_to 'Swarajya. ','#'%>
+                <%= link_to 'All Rights Reserved.', '#'%>
+            </div>
+            <div class="col-sm-6">
+                <ul class="pull-right">
+                  <li><%= link_to 'Home', home_path, class: "alink"%></li>
+                  <li><%= link_to 'About Us', about_us_path, class: "alink"%></li>
+                  <li><%= link_to 'Services', services_path, class: "alink"%></li>
+                  <li><%= link_to 'Contact Us', contact_us_path, class: "alink"%></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

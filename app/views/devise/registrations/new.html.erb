@@ -1,40 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title><%= t('academy_register') %></title>
-  <%= stylesheet_link_tag 'application'%>
-</head>
-<body class="bg-black">
+<div class="container">
+  <div class="row">
+    <div class="col-md-7"></div>
+    <div class="col-md-5">
+        <div class="panel">
+          <div class="panel-body">
+              <h2><%= t('register_new') %></h2>
+          </div>
+          <div class="panel-footer">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-<div class="form-box" id="login-box">
-    <div class="header"><%= t('register_new') %></div>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <div class="body bg-gray">
-    <%= devise_error_messages! %>
-        <div class="form-group">
-        <%= f.text_field :username, autofocus: true, class: "form-control", required: true, placeholder: "#{t('username')}"%>
-        </div>
-        <div class="form-group">
-        <%= f.text_field :first_name, class: "form-control", required: true, placeholder: "#{t('first_name')}"%>
-        </div>
-        <div class="form-group">
-        <%= f.text_field :last_name, class: "form-control", required: true, placeholder: "#{t('last_name')}"%>
-        </div>
-        <div class="form-group">
-        <%= f.email_field :email, class: "form-control", required: true, placeholder: "#{t('email')}"%>
-        </div>
-        <div class="form-group">
-        <%= f.password_field :password, autocomplete: "off", class: "form-control", required: true, placeholder:"#{t('password')} (#{@minimum_password_length} #{t('characters_minimum')})"%>
-        </div>
-        <div class="form-group">
-        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", required: true, placeholder:"#{t('confirmation_password')}"%>
-        </div>
+                <%= devise_error_messages! %>
+            
+                <div class="form-group">
+                <%= f.text_field :username, autofocus: true, class: "form-control", required: true, placeholder: "#{t('username')}"%>
+                </div>
+                <div class="form-group">
+                <%= f.text_field :first_name, class: "form-control", required: true, placeholder: "#{t('first_name')}"%>
+                </div>
+                <div class="form-group">
+                <%= f.text_field :last_name, class: "form-control", required: true, placeholder: "#{t('last_name')}"%>
+                </div>
+                <div class="form-group">
+                <%= f.email_field :email, class: "form-control", required: true, placeholder: "#{t('email')}"%>
+                </div>
+                <div class="form-group">
+                <%= f.password_field :password, autocomplete: "off", class: "form-control", required: true, placeholder:"#{t('password')} (#{@minimum_password_length} #{t('characters_minimum')})"%>
+                </div>
+                <div class="form-group">
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", required: true, placeholder:"#{t('confirmation_password')}"%>
+                </div>
+                <div class="form-group">                    
+                    <%= f.submit "#{t('sign_up')}", class: "btn btn-primary btn-lg" %>
+                </div>
+                <%= render "devise/shared/links" %>
+            <% end %>
+         </div>
+      </div>
     </div>
-        <div class="footer">                    
-        <%= f.submit "#{t('sign_up')}", class: "btn bg-olive btn-block" %>
-        <%= render "devise/shared/links" %>
-        </div>
-    <% end %>
+  </div>
 </div>
-</body>
-</html>

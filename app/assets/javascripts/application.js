@@ -17,11 +17,9 @@
 
 
 $(document).ready(function(){
-    $('#data_table').DataTable();
     $('#calendar').fullCalendar();
     $('.fc-day').on('click',function(event){
     	var a = {id: $(this).data().date};
-    	alert(a);
 		$.get('dashboard/booking',a,function(response){
 			});
     });

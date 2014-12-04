@@ -1,19 +1,20 @@
-<section class="content-header">
-    <h1>
-    <a href="#"><i class="fa fa-dashboard"></i></a>
-        <%= t('dashboard') %>
-        <small><%= t('control_panel') %></small>
-    </h1>
-    <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> <%= t('home') %></a></li>
-        <li class="active"><%= t('dashboard') %></li>
-    </ol>
-</section>
-<div id="alert"><%= render 'layouts/alert' %></div>
-<section class="content">
-<% if current_user.admin %>
-    <%= render 'admin_dashboard' %>
-<% else %>
-    <%= render 'user_dashboard' %>
-<% end %>
-</section>
+<div class="container">
+    <div class="row">
+        <h2><i class="fa fa-dashboard"></i>
+            <%= link_to t('dashboard') ,dashboard_index_path%>
+            <small><%= t('control_panel') %></small>
+        </h2>
+        <ol class="breadcrumb">
+            <li><i class="fa fa-dashboard"></i>
+            <%= link_to t('home'),home_path %></a></li>
+            <li class="active"><%= t('dashboard') %></li>
+        </ol>
+    </div>
+    <div id="alert"><%= render 'layouts/alert' %></div>
+
+    <% if current_user.admin %>
+        <%= render 'admin_dashboard' %>
+    <% else %>
+        <%= render 'user_dashboard' %>
+    <% end %>
+</div>
