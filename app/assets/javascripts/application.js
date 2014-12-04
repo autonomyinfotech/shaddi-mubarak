@@ -13,14 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
+//= require moment
+//= require fullcalendar
 //= require_tree .
-
-
-$(document).ready(function(){
-    $('#calendar').fullCalendar();
-    $('.fc-day').on('click',function(event){
-    	var a = {id: $(this).data().date};
-		$.get('dashboard/booking',a,function(response){
-			});
-    });
-});

@@ -2524,8 +2524,14 @@ shortcodes page css
   margin-left: 15px;
 }
 
+.fc-day:hover{
+background-color: #FFCFD0;
+}
 
+.fc-day:active{
+background-color: black;
+}
 
-
-
-
+.fc-today{
+    background-color: #EC8890;
+}
