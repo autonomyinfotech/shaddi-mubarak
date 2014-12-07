@@ -12,15 +12,15 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: :registrations }
 
-  resources :dashboard do
-    collection do
-      get :booking
-      post :create_booking
-    end
-  end
+  resources :dashboard
+
   resources :configuration do
     member { get :hall_profile }
     collection { get :view }
   end
-  resources :users
+  resources :users do
+    collection { get :profile }
+  end
+
+  resources :events
 end

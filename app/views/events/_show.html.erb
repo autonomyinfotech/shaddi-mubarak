@@ -1,0 +1,35 @@
+<div class="panel">
+    <div class="panel-body">
+        <h2>Booking Details</h2>
+    </div>
+    <div class="panel-footer">
+    	<ul class="blog_category">
+          <li>
+            <a href="#">
+              <strong style="margin-right:100px">Title:</strong> 
+              <span class="badge" style="width:200px"><%= @event.title %></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:50px">Description:</strong> 
+              <span class="badge" style="width:200px"><%= @event.description %></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:62px">Start date:</strong> 
+              <span class="badge" style="width:200px"><%= @event.start_date %></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:70px">End date:</strong> 
+              <span class="badge" style="width:200px"><%= @event.end_date %></span>
+            </a>
+          </li>
+        </ul>
+		<%= link_to 'Edit', edit_event_path(@event), remote:true, class: 'btn btn-success btn-sm'%>
+    <%= link_to 'Delete',@event,method: :delete, data:{confirm:"Are you sure to delete booking of '#{@event.title}' ?"}, class: 'btn btn-danger btn-sm'%>
+	</div>
+</div>

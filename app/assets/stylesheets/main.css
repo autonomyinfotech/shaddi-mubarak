@@ -2009,7 +2009,6 @@ textarea#message{
   border-color: transparent transparent transparent #c52d2f;
   border-style: solid;
   border-width: 10px;
-  bottom: -8px;
   content: "";
   height: 0;
   left: 5px;
@@ -2022,7 +2021,6 @@ textarea#message{
   border-radius: 5px;
   color: #fff;
   padding: 8px;
-  position: relative;
   left: 60px;
   top: -18px;
   font-weight: normal;
@@ -2503,6 +2501,7 @@ shortcodes page css
   padding-bottom: 30px;
   color: #fff;
   background: #2e2e2e;
+  border-top: 5px solid #c52d2f;
 }
 
 #footer a {
@@ -2534,4 +2533,14 @@ background-color: black;
 
 .fc-today{
     background-color: #EC8890;
+}
+
+.fc-content:hover {
+    color: #fff;
+    background-color: #000;
+}
+
+.tooltipevent {
+position:absolute;
+z-index:10001;
 }

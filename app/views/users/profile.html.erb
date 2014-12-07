@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="row">
+  	<div class="panel" style="display:initial;">
+      <div class="panel-body">
+          <h2><i class="fa fa-user"></i> 
+          <%= link_to @user.full_name, '#' %></h2>
+      </div>
+      <div class="panel-footer">
+      <div class="row">
+      	<div class="col-md-1"></div>
+      	<div class="col-md-4">
+      	<h3>Personal Details</h3>
+      	<hr>
+      	<ul class="blog_category">
+          <li>
+            <a href="#">
+              <strong style="margin-right:83px"><%= t('username') %></strong> 
+              <span><%= @user.username%></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:80px"><%= t('first_name') %></strong> 
+              <span><%= @user.first_name.capitalize%></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:80px"><%= t('last_name') %></strong> 
+              <span><%= @user.last_name.capitalize %></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:122px"><%= t('role') %></strong> 
+              <span ><%= @user.role %></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:113px"><%= t('email') %></strong> 
+              <span><%= @user.email %></span>
+            </a>
+          </li>
+        </ul>
+        </div>
+        <div class="col-md-1"></div>
+      	<div class="col-md-4">
+      	<h3>Login Details</h3>
+      	<hr>
+      	<ul class="blog_category">
+          <li>
+            <a href="#">
+              <strong style="margin-right:83px">Register Date</strong> 
+              <span><%= @user.created_at.to_date %></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:84px">Last Updated</strong> 
+              <span><%= @user.updated_at.to_date%></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:72px">Current Sign In</strong> 
+              <span><%= @user.current_sign_in_at.to_date %></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:95px">Last Sign In</strong> 
+              <span ><%= @user.last_sign_in_at.to_date %></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:84px">Sign In Count</strong>
+              <span><%= @user.sign_in_count %></span>
+            </a>
+          </li>
+        </ul>
+        </div>
+        </div>
+        <hr>
+
+        <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+	       	<b><%= t('cancel_my_account') %></b>&nbsp;&nbsp;&nbsp;
+			<%= link_to 'If you want unregister your account...','#'%> 
+		</div>
+		</div>
+		<div class="row">
+		<div class="col-md-8"></div>
+		<div class="col-md-3">
+		<%= link_to "#{t('cancel_my_account')}", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-primary btn-sm' %>
+		</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
