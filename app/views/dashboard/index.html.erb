@@ -1,20 +1,27 @@
 <div class="container">
-    <div class="row">
+  <div class="row">
+    <div class="panel">
+      <div class="panel-body">
         <h2><i class="fa fa-dashboard"></i>
             <%= link_to t('dashboard') ,dashboard_index_path%>
             <small><%= t('control_panel') %></small>
         </h2>
         <ol class="breadcrumb">
             <li><i class="fa fa-home"></i>
-            <%= link_to t('home'),home_path %></a></li>
+            <%= link_to t('home'),home_path %></li>
             <li class="active"><%= t('dashboard') %></li>
         </ol>
-    </div>
+      </div>
+    <div class="panel-footer">
     <div id="alert"><%= render 'layouts/alert' %></div>
 
-    <% if current_user.admin %>
-        <%= render 'admin_dashboard' %>
-    <% else %>
-        <%= render 'user_dashboard' %>
-    <% end %>
+        <% if current_user.admin %>
+            <%= render 'admin_dashboard' %>
+        <% else %>
+            <%= render 'user_dashboard' %>
+        <% end %>
+    </div>
+    </div>
+  </div>
 </div>
+

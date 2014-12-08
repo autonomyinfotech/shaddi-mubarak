@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(*)
-    thank_you_path
+    sign_out_path
   end
 
   private

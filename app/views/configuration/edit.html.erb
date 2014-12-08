@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="panel" style="display:initial;">
+      <div class="panel-body">
+        <h2><i class="fa fa-institution"></i> 
+          <%= link_to @hall.name.capitalize, '#' %></h2>
+          <ol class="breadcrumb">
+            <li><i class="fa fa-dashboard"></i> <a href="/dashboard"><%= t('dashboard') %></a></li>
+            <li><a><%= t('configuration') %></a></li>
+            <li><a href="/configuration/profile">Profile</a></li>
+            <li class="active">Edit</li>
+          </ol>
+      </div>
+      <div class="panel-footer">
+      <div class="col-md-2"></div>
+      <div class="col-md-6">
+      <%= form_for @hall,url:{action:'update',id: @hall.id}, method: :patch do |f| %>
+      
+      <%= hall_error_messages! %>
+       <div class="form-group">
+           <%= f.label "#{t('hall_name')}"%>
+           <%= f.text_field :name, class: "form-control", placeholder: "#{t('hall_name')}"%>
+       </div>
+       <div class="form-group">
+           <%= f.label "#{t('hall_address')}"%>
+           <%= f.text_field :address, class: "form-control", placeholder: "#{t('hall_address')}"%>
+       </div>
+       <div class="form-group">
+           <%= f.label "#{t('hall_phone_no')}"%>
+           <%= f.text_field :phone_no, class: "form-control", placeholder: "#{t('hall_phone_no')}"%>
+       </div>
+       <div class="form-group">
+           <%= f.label "#{t('language')}"%>
+           <%= f.select :language,[[t('english'),'en'],[t('marathi'),'mr'],[t('hindi'),'hi']],{prompt: "#{t('select_language')}"},{class: "form-control"} %>
+       </div>
+       <div class="form-group">
+           <%= f.label "#{t('upload_logo')}"%>
+           <%= f.file_field :image, placeholder: "#{t('choose_file')}", class: "form-control" %>
+       </div> 
+       <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-5">
+          <%= f.submit "#{t('update')}", class: "btn btn-success"%>
+        </div>
+      </div>
+    <% end %><br/><br/>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

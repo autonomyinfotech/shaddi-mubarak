@@ -4,13 +4,34 @@
       <div class="panel-body">
           <h2><i class="fa fa-user"></i> 
           <%= link_to @user.full_name, '#' %></h2>
+          <ol class="breadcrumb">
+            <li><i class="fa fa-dashboard"></i> <a href="/dashboard"><%= t('dashboard') %></a></li>
+            <li class="active"><a>User</a></li>
+            <li class="active">Profile</li>
+            <div class="pull-right">
+            <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-success btn-xs' %>
+            <%= link_to 'Hall Profile', profile_configuration_index_path, class: 'btn btn-info btn-xs' %></div>
+          </ol>
       </div>
       <div class="panel-footer">
+      <div id="alert"><%= render 'layouts/alert' %></div>
       <div class="row">
-      	<div class="col-md-1"></div>
+      	<div class="col-md-2">
+        <div class="blog">
+            <div class="blog-item">
+              <div class="blog-content">
+                <a>
+                <% if @user.image.present? %>
+                  <%= image_tag @user.image, class: 'img-responsive img-blog'%>
+                <% else %>
+                  <%= image_tag 'man1.jpg', class: 'img-responsive img-blog' %>
+                <% end %>
+                </a>
+              </div>
+            </div>
+          </div>  
+        </div>
       	<div class="col-md-4">
-      	<h3>Personal Details</h3>
-      	<hr>
       	<ul class="blog_category">
           <li>
             <a href="#">
@@ -44,33 +65,30 @@
           </li>
         </ul>
         </div>
-        <div class="col-md-1"></div>
       	<div class="col-md-4">
-      	<h3>Login Details</h3>
-      	<hr>
       	<ul class="blog_category">
           <li>
             <a href="#">
-              <strong style="margin-right:83px">Register Date</strong> 
-              <span><%= @user.created_at.to_date %></span>
+              <strong style="margin-right:83px">Register Date</strong>
+              <span><%= @user.created_at.strftime('%d-%B-%Y')%></span>
             </a>
           </li>
           <li>
             <a href="#">
               <strong style="margin-right:84px">Last Updated</strong> 
-              <span><%= @user.updated_at.to_date%></span>
+              <span><%= @user.updated_at.strftime('%d-%B-%Y')%></span>
             </a>
           </li>
           <li>
             <a href="#">
               <strong style="margin-right:72px">Current Sign In</strong> 
-              <span><%= @user.current_sign_in_at.to_date %></span>
+              <span><%= @user.current_sign_in_at.strftime('%d-%B-%Y') %></span>
             </a>
           </li>
           <li>
             <a href="#">
               <strong style="margin-right:95px">Last Sign In</strong> 
-              <span ><%= @user.last_sign_in_at.to_date %></span>
+              <span ><%= @user.last_sign_in_at.strftime('%d-%B-%Y') %></span>
             </a>
           </li>
           <li>
@@ -81,22 +99,13 @@
           </li>
         </ul>
         </div>
+        <div class="col-md-2">
+          <p><b><%= t('cancel_my_account') %></b></p>
+          <p><%= link_to 'Cancel your account will discard your profile and remove your data and other related information from existing system...','#'%></p><br/>
+          <p><%= link_to "#{t('cancel_my_account')}", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-primary btn-sm' %></p>
+        </div>
         </div>
         <hr>
-
-        <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-	       	<b><%= t('cancel_my_account') %></b>&nbsp;&nbsp;&nbsp;
-			<%= link_to 'If you want unregister your account...','#'%> 
-		</div>
-		</div>
-		<div class="row">
-		<div class="col-md-8"></div>
-		<div class="col-md-3">
-		<%= link_to "#{t('cancel_my_account')}", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-primary btn-sm' %>
-		</div>
-        </div>
       </div>
     </div>
   </div>

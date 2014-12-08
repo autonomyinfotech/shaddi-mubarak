@@ -1,6 +1,7 @@
 
 en:
   notice: 'Notice!'
+  configuration_create: 'Configuration created successfully'
   configuration_update: 'Configuration updated successfully'
   alert: 'Alert!'
   cancan_alert: 'You are not authorized to access this page.'

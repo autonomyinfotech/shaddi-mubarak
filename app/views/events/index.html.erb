@@ -1,5 +1,7 @@
 <div class="container">
-    <div class="row">
+  <div class="row">
+    <div class="panel">
+      <div class="panel-body">
         <h2><i class="fa fa-flag"></i>
             <%= link_to 'Events' ,events_path%>
             <small>Bookings</small>
@@ -8,18 +10,23 @@
             <li><i class="fa fa-dashboard"></i>
             <%= link_to t('dashboard'), dashboard_index_path %>
             </li>
-            <li class="active">Events</li>
+            <li><a>Events</a></li>
+            <li class="active">Booking</li>
         </ol>
+      </div>
+    <div class="panel-footer">
+        <div id="alert"><%= render 'layouts/alert' %></div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="calendar"></div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <div id="form"></div>
+            </div>
+        </div>
     </div>
-    <div id="alert"><%= render 'layouts/alert' %></div>
-    <div class="row">
-    <div class="col-md-6">
-        <div id="calendar"></div>
     </div>
-    <div class="col-md-1"></div>
-    <div class="col-md-5">
-        <div id="form"></div>
-    </div>
-</div>
+  </div>
 </div>
                     

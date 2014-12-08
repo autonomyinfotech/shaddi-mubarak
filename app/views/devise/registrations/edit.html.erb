@@ -1,16 +1,25 @@
-<section class="content">
+<div class="container">
   <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-<div class="box box-primary">
-  <div class="box-header">
-      <h3 class="box-title"><h2><%= t('edit_profile')%></h2></h3>
-  </div>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-
-      <div class="box-body">
-      <%= devise_error_messages! %>
-
+    <div class="panel">
+      <div class="panel-body">
+          <h2><i class="fa fa-user"></i> 
+          <%= link_to @user.full_name, '#' %>
+          <small>Edit Profile</small></h2>
+          <ol class="breadcrumb">
+            <li><i class="fa fa-dashboard"></i> <a href="/dashboard"><%= t('dashboard') %></a></li>
+            <li><a>User</a></li>
+            <li><a href="/users/profile">Profile</a></li>
+            <li class="active">Edit</li>
+          </ol>
+      </div>
+      <div class="panel-footer">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+        <%= devise_error_messages! %>
+        <div class="col-md-5">
           <div class="form-group">
           <%= f.label "#{t('username')}" %>
           <%= f.text_field :username, autofocus: true, class: "form-control", required: true, placeholder: "#{t('username')}"%>
@@ -27,7 +36,9 @@
           <%= f.label "#{t('email')}" %>
           <%= f.email_field :email, class: "form-control", required: true, placeholder: "#{t('email')}"%>
           </div>
-
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
@@ -44,12 +55,21 @@
           <%= f.label "#{t('current_password')}" %> <i>(<%= t('put_current_password') %>)</i>
           <%= f.password_field :current_password, autocomplete: "off", class: "form-control", required: true, placeholder:"#{t('current_password')}"%>
           </div>
-      <div class="box-footer">
-          <%= f.submit "#{t('update')}", class: "btn btn-success"%>
+          <div class="form-group">
+           <%= f.label "#{t('upload_logo')}"%>
+           <%= f.file_field :image, placeholder: "#{t('choose_file')}", class: "form-control" %>
+          </div>
+        </div>
+        </div>
       </div>
+      <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-md-5">
+          <%= f.submit "#{t('update')}", class: "btn btn-success"%>
+        </div>
+      </div>
+      <%end%>
+      </div>
+    </div>
   </div>
- <% end %>
 </div>
-</div>
-</div>
-</section>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'about_us', to: 'home#about_us', as: 'about_us'
   get 'portfolio', to: 'home#portfolio', as: 'portfolio'
   get 'services', to: 'home#services', as: 'services'
-  get 'thank_you', to: 'home#thank_you', as: 'thank_you'
+  get 'sign_out', to: 'home#sign_out', as: 'sign_out'
 
   devise_for :users, controllers: { registrations: :registrations }
 
@@ -16,7 +16,11 @@ Rails.application.routes.draw do
 
   resources :configuration do
     member { get :hall_profile }
-    collection { get :view }
+    collection do
+      get :edit
+      get :view
+      get :profile
+    end
   end
   resources :users do
     collection { get :profile }

@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+  	<div class="panel" style="display:initial;">
+      <div class="panel-body">
+          <h2><i class="fa fa-institution"></i> 
+          <%= link_to @hall.name.capitalize, '#' %>
+          </h2>
+          <ol class="breadcrumb">
+            <li><i class="fa fa-dashboard"></i> <a href="/dashboard"><%= t('dashboard') %></a></li>
+            <li class="active"><a><%= t('configuration') %></a></li>
+            <li class="active">Profile</li>
+            <div class="pull-right">
+            <%= link_to 'Edit Profile', edit_configuration_index_path, class: 'btn btn-success btn-xs' %></div>
+          </ol>
+      </div>
+      <div class="panel-footer">
+      <div id="alert"><%= render 'layouts/alert' %></div>
+      <div class="row">
+        <div class="col-md-1"></div>
+      	<div class="col-md-6">
+          <div class="blog">
+            <div class="blog-item">
+              <div class="blog-content">
+                <a>
+                <% if @hall.image.present? %>
+                  <%= image_tag @hall.image, class: 'img-responsive img-blog'%>
+                <% else %>
+                  <%= image_tag 'blog1.jpg', class: 'img-responsive img-blog' %>
+                <% end %>
+                </a>
+                <h3>We are providing services for mangemant of marriage hall and other events hall. We providing different services for each events.We are providing 24*7 services. We are providing easily booking for customer who want to book hall for events in particular area and with full of services. </h3>
+              </div>
+            </div>
+          </div> 
+        </div>
+      	<div class="col-md-4">
+      	<ul class="blog_category">
+          <li>
+            <a href="#">
+              <strong style="margin-right:83px">Register Date</strong><br/>
+              <span><%= @hall.created_at.strftime('%d-%B-%Y') %></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:83px">Last Update Date</strong><br/>
+              <span><%= @hall.updated_at.strftime('%d-%B-%Y') %></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:83px"><%= t('address') %></strong><br/>
+              <span><%= @hall.address %></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:80px"><%= t('phone') %></strong><br/>
+              <span><%= @hall.phone_no %></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:80px"><%= t('language') %></strong><br/>
+              <span><%= hall_language %></span>
+            </a>
+          </li>
+        </ul>
+        </div>
+		  </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,14 +1,28 @@
 class ConfigurationController < ApplicationController
-  def index
+  def new
+    @hall = Hall.new
+  end
+
+  def create
+    @hall = Hall.new(hall_params)
+    if @hall.save
+      current_user.update(hall_id: @hall.id)
+      flash[:notice] = t('configuration_create')
+      redirect_to dashboard_index_path
+    else
+      render 'new'
+    end
+  end
+
+  def edit
     @hall = current_user.hall
-    authorize! :update, @hall
   end
 
   def update
     @hall = Hall.where(id: params[:id]).take
     if @hall.update(hall_params)
       flash[:notice] = t('configuration_update')
-      redirect_to dashboard_index_path
+      redirect_to profile_configuration_index_path
     else
       render 'index'
     end
@@ -28,6 +42,10 @@ class ConfigurationController < ApplicationController
     @hall = Hall.where(id: params[:id]).take
     authorize! :read, @hall
     render 'hall_profile', layout: false
+  end
+
+  def profile
+    @hall = current_user.hall
   end
 
   private

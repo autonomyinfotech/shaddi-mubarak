@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   validates_format_of :username, with: /\A[a-zA-Z0-9]+\Z/
   validates_length_of [:first_name, :last_name], maximum: 20
   validates_format_of [:first_name, :last_name], with: /\A[a-zA-Z]+\Z/
+  has_attached_file :image
+  validates_attachment_content_type :image, content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
   before_save :assign_role
 
   scope :user_list, -> { includes(:hall).all }
@@ -36,11 +38,6 @@ class User < ActiveRecord::Base
     else
       'User'
     end
-  end
-
-  def create_hall
-    hall = Hall.default
-    update(hall_id: hall.id)
   end
 
   private

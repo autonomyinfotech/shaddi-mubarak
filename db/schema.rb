@@ -16,14 +16,6 @@ ActiveRecord::Schema.define(version: 20141204190214) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "bookings", force: true do |t|
-    t.date     "start_date"
-    t.date     "end_date"
-    t.string   "booker"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "events", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -52,6 +44,10 @@ ActiveRecord::Schema.define(version: 20141204190214) do
     t.string   "username"
     t.boolean  "admin",                  default: false
     t.integer  "hall_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
