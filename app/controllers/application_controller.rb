@@ -5,10 +5,6 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user!
   before_filter :set_language
 
-  rescue_from CanCan::AccessDenied do
-    redirect_to root_url, alert: t('cancan_alert')
-  end
-
   def after_sign_in_path_for(*)
     dashboard_index_path
   end
@@ -20,6 +16,6 @@ class ApplicationController < ActionController::Base
   private
 
   def set_language
-    I18n.locale = current_user.language if current_user
+    I18n.locale = Hall.first.language if Hall.first
   end
 end

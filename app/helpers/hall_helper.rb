@@ -1,4 +1,4 @@
-module ConfigurationHelper
+module HallHelper
   def hall_error_messages!
     return  if @hall.errors.empty?
 
@@ -16,11 +16,11 @@ module ConfigurationHelper
   def hall_language
     lang = @hall.language
     if lang == 'mr'
-      t('marathi')
+      'Marathi'
     elsif lang == 'hi'
-      t('hindi')
+      'Hindi'
     else
-      t('english')
+      'English'
     end
   end
 end

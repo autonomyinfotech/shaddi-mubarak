@@ -1,1 +1,1 @@
-$(window.location.replace("/events"));
+$.get('customers/edit',{ id: <%= @event.customer.id %> },function(response){});

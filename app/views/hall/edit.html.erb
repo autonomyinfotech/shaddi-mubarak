@@ -6,16 +6,16 @@
           <%= link_to @hall.name.capitalize, '#' %></h2>
           <ol class="breadcrumb">
             <li><i class="fa fa-dashboard"></i> <a href="/dashboard"><%= t('dashboard') %></a></li>
-            <li><a><%= t('configuration') %></a></li>
+            <li><a>Hall</a></li>
             <li><a href="/configuration/profile">Profile</a></li>
             <li class="active">Edit</li>
           </ol>
       </div>
       <div class="panel-footer">
-      <div class="col-md-2"></div>
-      <div class="col-md-6">
-      <%= form_for @hall,url:{action:'update',id: @hall.id}, method: :patch do |f| %>
+      <%= form_for @hall,url:{action:'update'}, method: :patch do |f| %>
       
+      <div class="col-md-1"></div>
+    <div class="col-md-5">
       <%= hall_error_messages! %>
        <div class="form-group">
            <%= f.label "#{t('hall_name')}"%>
@@ -30,17 +30,32 @@
            <%= f.text_field :phone_no, class: "form-control", placeholder: "#{t('hall_phone_no')}"%>
        </div>
        <div class="form-group">
-           <%= f.label "#{t('language')}"%>
-           <%= f.select :language,[[t('english'),'en'],[t('marathi'),'mr'],[t('hindi'),'hi']],{prompt: "#{t('select_language')}"},{class: "form-control"} %>
+           <%= f.label :hall_type %>
+           <%= f.text_field :hall_type, class: "form-control", placeholder: 'Hall type'%>
+       </div>
+    </div>
+    <div class="col-md-5">
+       <div class="form-group">
+           <%= f.label :no_of_floors %>
+           <%= f.text_field :no_of_floors, class: "form-control", placeholder: 'No of floors'%>
        </div>
        <div class="form-group">
-           <%= f.label "#{t('upload_logo')}"%>
+           <%= f.label :hall_capacity %>
+           <%= f.text_field :hall_capacity, class: "form-control", placeholder: 'Hall capacity'%>
+       </div>
+       <div class="form-group">
+           <%= f.label "#{t('language')}"%>
+           <%= f.select :language,[[t('english'),'en'],[t('marathi'),'mr'],[t('hindi'),'hi']],{prompt: "#{t('select_language')}"},{class: "form-control",required: true} %>
+       </div>
+       <div class="form-group">
+           <%= f.label 'Upload photo'%>
            <%= f.file_field :image, placeholder: "#{t('choose_file')}", class: "form-control" %>
        </div> 
+    </div>
        <div class="row">
-        <div class="col-md-4"></div>
+        <div class="col-md-5"></div>
         <div class="col-md-5">
-          <%= f.submit "#{t('update')}", class: "btn btn-success"%>
+          <%= f.submit "Update", class: "btn btn-success"%>
         </div>
       </div>
     <% end %><br/><br/>

@@ -1,13 +1,8 @@
 class RegistrationsController < Devise::RegistrationsController
-  def create
-    super
-    @user.create_hall
-  end
-
   private
 
-  def after_sign_up_path_for(resource)
-    resource.admin ? dashboard_index_path : new_configuration_path
+  def after_sign_up_path_for(*)
+    new_hall_path
   end
 
   def after_update_path_for(*)

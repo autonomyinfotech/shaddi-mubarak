@@ -7,10 +7,10 @@
           </h2>
           <ol class="breadcrumb">
             <li><i class="fa fa-dashboard"></i> <a href="/dashboard"><%= t('dashboard') %></a></li>
-            <li class="active"><a><%= t('configuration') %></a></li>
+            <li class="active"><a>Hall</a></li>
             <li class="active">Profile</li>
             <div class="pull-right">
-            <%= link_to 'Edit Profile', edit_configuration_index_path, class: 'btn btn-success btn-xs' %></div>
+            <%= link_to 'Edit Profile', edit_hall_index_path, class: 'btn btn-success btn-xs' %></div>
           </ol>
       </div>
       <div class="panel-footer">
@@ -33,18 +33,18 @@
             </div>
           </div> 
         </div>
-      	<div class="col-md-4">
+      	<div class="col-md-3">
       	<ul class="blog_category">
           <li>
             <a href="#">
               <strong style="margin-right:83px">Register Date</strong><br/>
-              <span><%= @hall.created_at.strftime('%d-%B-%Y') %></span>
+              <span><%= @hall.created_at.strftime('%d %B %Y') %></span>
             </a>
           </li>
           <li>
             <a href="#">
               <strong style="margin-right:83px">Last Update Date</strong><br/>
-              <span><%= @hall.updated_at.strftime('%d-%B-%Y') %></span>
+              <span><%= @hall.updated_at.strftime('%d %B %Y') %></span>
             </a>
           </li>
           <li>
@@ -57,6 +57,24 @@
             <a href="#">
               <strong style="margin-right:80px"><%= t('phone') %></strong><br/>
               <span><%= @hall.phone_no %></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:80px">Hall Type</strong><br/>
+              <span><%= @hall.hall_type %></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:80px">No Of Floors</strong><br/>
+              <span><%= @hall.no_of_floors %></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:80px">Hall Capacity</strong><br/>
+              <span><%= @hall.hall_capacity %></span>
             </a>
           </li>
           <li>

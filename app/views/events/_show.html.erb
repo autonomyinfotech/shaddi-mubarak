@@ -1,35 +1,55 @@
 <div class="panel">
     <div class="panel-body">
-        <h2>Booking Details</h2>
+        <h2>Booking Details
+        <div class="pull-right">
+        <%= link_to 'Edit', edit_event_path(@event), remote:true, class: 'btn btn-success btn-sm'%>
+        <%= link_to 'Delete',@event,method: :delete, data:{confirm:"Are you sure to delete booking of '#{@event.event_type.name}' ?"}, class: 'btn btn-danger btn-sm'%></div></h2>
     </div>
     <div class="panel-footer">
     	<ul class="blog_category">
           <li>
             <a href="#">
-              <strong style="margin-right:100px">Title:</strong> 
-              <span class="badge" style="width:200px"><%= @event.title %></span>
+              <strong style="margin-right:100px">Event:</strong> 
+              <span><%= @event.event_type.name %></span>
             </a>
           </li>
           <li>
             <a href="#">
-              <strong style="margin-right:50px">Description:</strong> 
-              <span class="badge" style="width:200px"><%= @event.description %></span>
+              <strong style="margin-right:70px">Start date:</strong> 
+              <span><%= @event.start_date.strftime('%d %B %Y') %></span>
             </a>
           </li>
           <li>
             <a href="#">
-              <strong style="margin-right:62px">Start date:</strong> 
-              <span class="badge" style="width:200px"><%= @event.start_date %></span>
+              <strong style="margin-right:77px">End date:</strong> 
+              <span><%= @event.end_date.strftime('%d %B %Y') %></span>
             </a>
           </li>
           <li>
             <a href="#">
-              <strong style="margin-right:70px">End date:</strong> 
-              <span class="badge" style="width:200px"><%= @event.end_date %></span>
+              <strong style="margin-right:27px">Customer Name:</strong> 
+              <span><%= @event.customer.full_name %></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <strong style="margin-right:70px">Mobile No:</strong> 
+              <span><%= @event.customer.mobile %></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+            <strong style="margin-right:70px">Phone No:</strong> 
+              <span><%= @event.customer.phone_no %></span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+            <strong style="margin-right:100px">Email:</strong> 
+              <span><%= @event.customer.email %></span>
             </a>
           </li>
         </ul>
-		<%= link_to 'Edit', edit_event_path(@event), remote:true, class: 'btn btn-success btn-sm'%>
-    <%= link_to 'Delete',@event,method: :delete, data:{confirm:"Are you sure to delete booking of '#{@event.title}' ?"}, class: 'btn btn-danger btn-sm'%>
+		
 	</div>
 </div>

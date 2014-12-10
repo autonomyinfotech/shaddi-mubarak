@@ -21,10 +21,6 @@
         <%= devise_error_messages! %>
         <div class="col-md-5">
           <div class="form-group">
-          <%= f.label "#{t('username')}" %>
-          <%= f.text_field :username, autofocus: true, class: "form-control", required: true, placeholder: "#{t('username')}"%>
-          </div>
-          <div class="form-group">
           <%= f.label "#{t('first_name')}" %>
           <%= f.text_field :first_name, class: "form-control", required: true, placeholder: "#{t('first_name')}"%>
           </div>
@@ -35,6 +31,10 @@
           <div class="form-group">
           <%= f.label "#{t('email')}" %>
           <%= f.email_field :email, class: "form-control", required: true, placeholder: "#{t('email')}"%>
+          </div>
+          <div class="form-group">
+          <%= f.label 'Upload photo'%>
+          <%= f.file_field :image, placeholder: "#{t('choose_file')}", class: "form-control" %>
           </div>
         </div>
         <div class="col-md-1"></div>
@@ -54,10 +54,6 @@
           <div class="form-group">
           <%= f.label "#{t('current_password')}" %> <i>(<%= t('put_current_password') %>)</i>
           <%= f.password_field :current_password, autocomplete: "off", class: "form-control", required: true, placeholder:"#{t('current_password')}"%>
-          </div>
-          <div class="form-group">
-           <%= f.label "#{t('upload_logo')}"%>
-           <%= f.file_field :image, placeholder: "#{t('choose_file')}", class: "form-control" %>
           </div>
         </div>
         </div>

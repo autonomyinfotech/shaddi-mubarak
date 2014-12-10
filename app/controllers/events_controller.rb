@@ -10,12 +10,17 @@ class EventsController < ApplicationController
 
   def new
     @date = params[:date]
+    @event_types = EventType.all
     @event = Event.new
   end
 
   def create
     @event = Event.new(event_params)
     @event.save
+  end
+
+  def edit
+    @event_types = EventType.all
   end
 
   def update

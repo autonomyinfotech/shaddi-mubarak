@@ -10,7 +10,7 @@
             <li class="active">Profile</li>
             <div class="pull-right">
             <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-success btn-xs' %>
-            <%= link_to 'Hall Profile', profile_configuration_index_path, class: 'btn btn-info btn-xs' %></div>
+            <%= link_to 'Hall Profile', profile_hall_index_path, class: 'btn btn-info btn-xs' %></div>
           </ol>
       </div>
       <div class="panel-footer">
@@ -35,12 +35,6 @@
       	<ul class="blog_category">
           <li>
             <a href="#">
-              <strong style="margin-right:83px"><%= t('username') %></strong> 
-              <span><%= @user.username%></span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
               <strong style="margin-right:80px"><%= t('first_name') %></strong> 
               <span><%= @user.first_name.capitalize%></span>
             </a>
@@ -49,12 +43,6 @@
             <a href="#">
               <strong style="margin-right:80px"><%= t('last_name') %></strong> 
               <span><%= @user.last_name.capitalize %></span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <strong style="margin-right:122px"><%= t('role') %></strong> 
-              <span ><%= @user.role %></span>
             </a>
           </li>
           <li>
@@ -70,25 +58,25 @@
           <li>
             <a href="#">
               <strong style="margin-right:83px">Register Date</strong>
-              <span><%= @user.created_at.strftime('%d-%B-%Y')%></span>
+              <span><%= @user.created_at.strftime('%d %B %Y')%></span>
             </a>
           </li>
           <li>
             <a href="#">
               <strong style="margin-right:84px">Last Updated</strong> 
-              <span><%= @user.updated_at.strftime('%d-%B-%Y')%></span>
+              <span><%= @user.updated_at.strftime('%d %B %Y')%></span>
             </a>
           </li>
           <li>
             <a href="#">
               <strong style="margin-right:72px">Current Sign In</strong> 
-              <span><%= @user.current_sign_in_at.strftime('%d-%B-%Y') %></span>
+              <span><%= @user.current_sign_in_at.strftime('%d %B %Y') %></span>
             </a>
           </li>
           <li>
             <a href="#">
               <strong style="margin-right:95px">Last Sign In</strong> 
-              <span ><%= @user.last_sign_in_at.strftime('%d-%B-%Y') %></span>
+              <span ><%= @user.last_sign_in_at.strftime('%d %B %Y') %></span>
             </a>
           </li>
           <li>

@@ -1,1 +1,1 @@
-$(window.location.replace("/events"));
+$.get('customers/new',{ event_id: <%= @event.id %> },function(response){});

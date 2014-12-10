@@ -14,17 +14,19 @@ Rails.application.routes.draw do
 
   resources :dashboard
 
-  resources :configuration do
-    member { get :hall_profile }
+  resources :hall do
     collection do
       get :edit
       get :view
       get :profile
+      patch :update
     end
   end
   resources :users do
     collection { get :profile }
   end
-
   resources :events
+  resources :customers do
+    collection { get :edit }
+  end
 end
