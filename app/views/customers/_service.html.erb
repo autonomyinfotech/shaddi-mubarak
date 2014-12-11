@@ -1,0 +1,18 @@
+<div class="panel">
+    <div class="panel-body">
+        <h2>Services</h2>
+    </div>
+    <div class="panel-footer">
+		<%= form_for :service,url:{action: 'service',id:@customer.id}, remote:true do |f| %>
+
+		<% @services.each do |s| %>
+		  <div class="form-group">
+		  <%= check_box_tag "services[]","#{s.id}",selecte: false%>&nbsp;&nbsp;<%= f.label "#{s.name}" %>
+		  </div>
+		<% end %>
+		  <div class="form-group">
+		   <%= f.submit 'Add', class: "btn btn-primary btn-lg" %>
+		  </div>
+		<% end %>
+	</div>
+</div>

@@ -27,6 +27,19 @@ Rails.application.routes.draw do
   end
   resources :events
   resources :customers do
-    collection { get :edit }
+    collection do
+      get :edit
+      post :service
+    end
+  end
+  resources :settings do
+    collection do
+      get :add_event
+      post :create_event
+      get :add_service
+      post :create_service
+      get :add_outsource
+      post :create_outsource
+    end
   end
 end

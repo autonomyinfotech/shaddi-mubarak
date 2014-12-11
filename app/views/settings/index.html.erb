@@ -1,0 +1,106 @@
+<div class="container">
+  <div class="row">
+    <div class="panel">
+      <div class="panel-body">
+        <h2><i class="fa fa-cog"></i>
+            <%= link_to 'Settings' ,settings_path%>
+            <small>Common Setting</small>
+        </h2>
+        <ol class="breadcrumb">
+            <li><i class="fa fa-dashboard"></i>
+            <%= link_to t('dashboard'), dashboard_index_path %>
+            </li>
+            <li><a>Settings</a></li>
+            <li class="active">Common Setting</li>
+            <div class="pull-right">
+            <%= link_to 'Add Event Type',add_event_settings_path, remote: true, class: 'btn btn-success btn-xs' %>
+            <%= link_to 'Add Service',add_service_settings_path, remote: true, class: 'btn btn-success btn-xs' %>
+            <%= link_to 'Add Outsource',add_outsource_settings_path, remote: true, class: 'btn btn-success btn-xs' %></div>
+        </ol>
+      </div>
+      <div class="panel-footer">
+        <div id="alert"><%= render 'layouts/alert' %></div>
+        <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Service Name</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% @services.each_with_index do |s,i| %>
+              <tr>
+                  <td><%= i+1 %></td>
+                  <td><%= s.name %></td>
+              </tr>
+            <%end%>
+            </tbody>
+          </table>
+        </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Event Type Name</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% @event_types.each_with_index do |e,i| %>
+              <tr>
+                  <td><%= i+1 %></td>
+                  <td><%= e.name %></td>
+              </tr>
+            <%end%>
+            </tbody>
+          </table>
+        </div>
+        </div>
+        </div>
+        <hr>
+        <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+         <div class="table-responsive">
+          <table class="table">
+            <thead>
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Service</th>
+                    <th>Outsource Name</th>
+                    <th>Mobile No-1</th>
+                    <th>Mobile No-2</th>
+                    <th>Phone No</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% @outsources.each_with_index do |o,i| %>
+              <tr>
+                  <td><%= i+1 %></td>
+                  <td><%= o.service.name %></td>
+                  <td><%= o.name %></td>
+                  <td><%= o.mobile1 %></td>
+                  <td><%= o.mobile2 %></td>
+                  <td><%= o.phone %></td>
+                  <td><%= o.email %></td>
+              </tr>
+            <%end%>
+            </tbody>
+          </table>
+        </div>
+        </div>
+        </div>
+      </div>
+      <div id="modal" class="modal fade"></div>
+    </div>
+  </div>
+</div>
+                  

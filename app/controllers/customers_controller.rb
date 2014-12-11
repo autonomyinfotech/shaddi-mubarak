@@ -10,10 +10,20 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
     @customer.save
     @event.update(customer_id: @customer.id)
+    @services = Service.all
   end
 
   def update
     @customer.update(customer_params)
+  end
+
+  def service
+    services = params[:services]
+    id = params[:id]
+    return if services.nil?
+    services.each do |s|
+      CustomersService.create(customer_id: id, service_id: s)
+    end
   end
 
   private

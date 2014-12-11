@@ -8,4 +8,12 @@ class Customer < ActiveRecord::Base
   def mobile
     "#{mobile1}, #{mobile2}"
   end
+
+  def service
+    service = ''
+    services.each do |s|
+      service += s.name + ', '
+    end
+    service
+  end
 end
